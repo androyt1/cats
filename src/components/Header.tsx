@@ -12,7 +12,7 @@ const Header = () => (
         </span>
       </NavLink>
 
-      <div className="flex space-x-4">
+      <div className="flex items-center space-x-4">
         <NavLink
           className={({ isActive }) =>
             isActive ? "text-white" : "text-stone-400"
