@@ -80,7 +80,7 @@ const HomePage = () => {
 
       {data && (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-stone-100 dark:bg-stone-700 p-1 md:p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 bg-stone-100 dark:bg-stone-700 p-1 md:p-4">
             {allCats.map((cat: Cat) => (
               <CatCard
                 key={cat.id}
