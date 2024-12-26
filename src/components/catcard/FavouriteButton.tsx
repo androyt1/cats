@@ -1,3 +1,5 @@
+import TooltipButton from "./TooltipButton";
+
 interface FavouriteButtonProps {
   isFavourite: boolean;
   onToggle: () => void;
@@ -5,12 +7,12 @@ interface FavouriteButtonProps {
 
 const FavouriteButton = ({ isFavourite, onToggle }: FavouriteButtonProps) => {
   return (
-    <button
-      className={`text-xl ${isFavourite ? "text-red-500" : "text-gray-500"}`}
+    <TooltipButton
+      variant="favorite"
+      isFavorite={isFavourite}
       onClick={onToggle}
-    >
-      ♥
-    </button>
+      tooltipText={isFavourite ? "Remove from favorites" : "Add to favorites"}
+    />
   );
 };
 
