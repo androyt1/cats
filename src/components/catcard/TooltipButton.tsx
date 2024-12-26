@@ -31,11 +31,13 @@ const TooltipButton = ({
           <TooltipTrigger asChild>
             <button
               onClick={onClick}
-              className={`transition-colors border dark:border-white  p-2 shadow-sm shadow-stone-400 rounded-sm ${
-                isFavorite ? "text-red-500" : "text-gray-500"
-              } ${className}`}
+              className={`transition-colors border dark:border-white  p-2 shadow-sm shadow-stone-400 rounded-sm  ${className}`}
             >
-              <Heart className={`size-6 ${isFavorite ? "fill-current" : ""}`} />
+              <Heart
+                className={`size-6 text-red-600 ${
+                  isFavorite ? "fill-current" : ""
+                }`}
+              />
             </button>
           </TooltipTrigger>
           <TooltipContent>
