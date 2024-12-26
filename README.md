@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+# Cats
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Website](https://img.shields.io/badge/website-live-brightgreen)](https://cats-rose.vercel.app)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A TypeScript project that focuses on cat-related content.
 
-## Expanding the ESLint configuration
+## Repository Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Languages Used**:
+  - TypeScript: 85.6%
+  - JavaScript: 7.5%
+  - CSS: 5.7%
+  - HTML: 1.2%
+- **Created on**: December 26, 2024
+- **Last Updated**: December 26, 2024
+- **Default Branch**: main
+- **Homepage**: [cats-rose.vercel.app](https://cats-rose.vercel.app)
+- **Stars**: 0
+- **Forks**: 0
+- **Watchers**: 0
 
-- Configure the top-level `parserOptions` property like this:
+## Contact
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+androyt1@gmail.com
+Project link: [GitHub](https://github.com/androyt1/cats)
