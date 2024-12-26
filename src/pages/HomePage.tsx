@@ -9,7 +9,6 @@ interface Cat {
   id: string;
   url: string;
   score?: number;
-  favourite_id?: string;
 }
 
 const HomePage = () => {
@@ -81,14 +80,13 @@ const HomePage = () => {
 
       {data && (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-stone-100 p-4">
             {allCats.map((cat: Cat) => (
               <CatCard
                 key={cat.id}
                 id={cat.id}
                 url={cat.url}
                 score={cat.score || 0}
-                favouriteId={cat.favourite_id}
               />
             ))}
           </div>
