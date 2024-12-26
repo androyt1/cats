@@ -63,7 +63,7 @@ const HomePage = () => {
   const allCats = data?.pages.flatMap((page) => page.data) ?? [];
 
   return (
-    <div className="p-4">
+    <div className="p-1 md:p-4">
       {isLoading && (
         <div className="flex justify-center items-center">
           <Loader />
@@ -80,7 +80,7 @@ const HomePage = () => {
 
       {data && (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-stone-100 p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-stone-100 p-1 md:p-4">
             {allCats.map((cat: Cat) => (
               <CatCard
                 key={cat.id}
