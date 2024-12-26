@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
+import { ModeToggle } from "./mode-toggle";
 
 const Header = () => (
-  <header className=" bg-gray-800  ">
+  <header className=" bg-stone-800  ">
     <nav className="flex justify-between items-center h-16 px-4">
       <NavLink to="/" className="flex items-center">
         <Logo />
@@ -28,6 +29,7 @@ const Header = () => (
         >
           Upload
         </NavLink>
+        <ModeToggle />
       </div>
     </nav>
   </header>

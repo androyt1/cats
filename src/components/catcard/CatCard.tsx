@@ -59,7 +59,7 @@ const CatCard = ({ id, url, score }: CatCardProps) => {
   const isFavourite = Boolean(idOfNewFavourite);
 
   return (
-    <div className="p-4 border rounded bg-white shadow-sm shadow-stone-400">
+    <div className="p-4 border rounded bg-white dark:bg-stone-800 shadow-sm shadow-stone-400">
       <CatImage url={url} />
       <div className="mt-2 flex justify-between items-center">
         <FavouriteButton
