@@ -1,22 +1,26 @@
+import TooltipButton from "./TooltipButton";
+
 interface VoteButtonsProps {
   onVote: (value: number) => void;
 }
 
 const VoteButtons = ({ onVote }: VoteButtonsProps) => {
   return (
-    <div>
-      <button
-        className="px-2 py-1 bg-green-500 text-white rounded"
+    <div className="flex gap-2">
+      <TooltipButton
         onClick={() => onVote(1)}
+        tooltipText="Upvote"
+        className="bg-green-500 text-white hover:bg-green-600"
       >
         +1
-      </button>
-      <button
-        className="px-2 py-1 bg-red-500 text-white rounded"
+      </TooltipButton>
+      <TooltipButton
         onClick={() => onVote(-1)}
+        tooltipText="Downvote"
+        className="bg-red-500 text-white hover:bg-red-600"
       >
         -1
-      </button>
+      </TooltipButton>
     </div>
   );
 };

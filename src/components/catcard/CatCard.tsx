@@ -9,46 +9,63 @@ interface CatCardProps {
   id: string;
   url: string;
   score: number;
-  favouriteId?: string;
 }
 
-const CatCard = ({ id, url, score, favouriteId }: CatCardProps) => {
-  const [isFavourite, setIsFavourite] = useState<boolean>(() => {
-    return getLocalStorage(`cat-${id}-isFavourite`, !!favouriteId);
-  });
+const CatCard = ({ id, url, score }: CatCardProps) => {
+  const [idOfNewFavourite, setIdOfNewFavourite] = useState<string | null>(() =>
+    getLocalStorage(`cat-${id}-isFavourite`, null)
+  );
 
-  const [currentScore, setCurrentScore] = useState<number>(() => {
-    return getLocalStorage(`cat-${id}-score`, score);
-  });
+  const [currentScore, setCurrentScore] = useState<number>(() =>
+    getLocalStorage(`cat-${id}-score`, score)
+  );
 
   useEffect(() => {
-    setLocalStorage(`cat-${id}-isFavourite`, isFavourite);
-  }, [isFavourite, id]);
+    setLocalStorage(`cat-${id}-isFavourite`, idOfNewFavourite);
+  }, [idOfNewFavourite, id]);
 
   useEffect(() => {
     setLocalStorage(`cat-${id}-score`, currentScore);
   }, [currentScore, id]);
 
-  const handleFavourite = async () => {
-    if (isFavourite && favouriteId) {
-      await unfavouriteCat(favouriteId);
-      setIsFavourite(false);
-    } else {
-      await favouriteCat(id);
-      setIsFavourite(true);
+  const handleVote = async (value: number) => {
+    try {
+      await voteCat(id, value);
+      setCurrentScore((prev) => prev + value);
+    } catch (error) {
+      console.error("Error voting:", error);
     }
   };
 
-  const handleVote = async (value: number) => {
-    await voteCat(id, value);
-    setCurrentScore((prev) => prev + value);
+  const handleFavourite = async () => {
+    try {
+      const response = await favouriteCat(id);
+      setIdOfNewFavourite(response.data.id);
+    } catch (error) {
+      console.error("Error favoriting:", error);
+    }
   };
 
+  const handleUnfavourite = async () => {
+    if (!idOfNewFavourite) return;
+    try {
+      await unfavouriteCat(idOfNewFavourite);
+      setIdOfNewFavourite(null);
+    } catch (error) {
+      console.error("Error unfavoriting:", error);
+    }
+  };
+
+  const isFavourite = Boolean(idOfNewFavourite);
+
   return (
-    <div className="p-4 border rounded">
+    <div className="p-4 border rounded bg-white shadow-sm">
       <CatImage url={url} />
       <div className="mt-2 flex justify-between items-center">
-        <FavouriteButton isFavourite={isFavourite} onToggle={handleFavourite} />
+        <FavouriteButton
+          isFavourite={isFavourite}
+          onToggle={isFavourite ? handleUnfavourite : handleFavourite}
+        />
         <VoteButtons onVote={handleVote} />
       </div>
       <p className="mt-2 text-center">Score: {currentScore}</p>
