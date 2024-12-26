@@ -10,7 +10,7 @@ const Logo = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-paw-print text-stone-400"
+      className="lucide lucide-paw-print text-stone-400 size-8"
     >
       <circle cx="11" cy="4" r="2" color="red" />
       <circle cx="18" cy="8" r="2" color="green" />
