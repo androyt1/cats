@@ -30,6 +30,7 @@ const CatCard = ({ id, url, score }: CatCardProps) => {
 
   const handleVote = async (value: number) => {
     try {
+      if (currentScore === 0 && value === -1) return;
       await voteCat(id, value);
       setCurrentScore((prev) => prev + value);
     } catch (error) {
